@@ -24,9 +24,22 @@
     const currentTime = player.getTime();
     const duration = player.getDuration();
     const percent = (currentTime / duration) * 100;
+
+    //total timeout
+    $('.total-time').text (duration);
+
     $('#time-control .current-time').text (currentTime );
     $('#time-control input').val(percent);
   }, 1000);
+
+
+
+//set volume
+  $('#volume-control input').on('input', function (event) {
+    player.setVolume(event.target.value);
+  });
+
+
 
 //Previous button
   $('button#previous').on('click', function () {
